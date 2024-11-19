@@ -52,7 +52,7 @@
   </tr>
   <tr>
     <td>description_perso</td>
-    <td>VARCHAR</td>
+    <td>TEXT</td>
     <td></td>
     <td>description du personnage</td>
   </tr>
@@ -76,7 +76,7 @@
   </tr>
   <tr>
     <td>description_salle</td>
-    <td>VARCHAR</td>
+    <td>TEXT</td>
     <td></td>
     <td>description de la salle</td>
   </tr>
@@ -94,7 +94,7 @@
   </tr>
   <tr>
     <td>description_objet</td>
-    <td>VARCHAR</td>
+    <td>TEXT</td>
     <td></td>
     <td>description de l'objet</td>
   </tr>
