@@ -16,29 +16,29 @@ CREATE DATABASE simpluedo;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
 
 CREATE TABLE personnage(
-   id_perso INTEGER PRIMARY KEY,
+   id_perso INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    nom_perso VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE salle(
-   id_salle INTEGER PRIMARY KEY,
+   id_salle INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    nom_salle VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE objet(
-   id_objet INTEGER PRIMARY KEY,
-   nom_objet VARCHAR(20) ,
+   id_objet INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   nom_objet VARCHAR(20) UNIQUE NOT NULL,
    id_salle INTEGER NOT NULL REFERENCES salle(id_salle)
 );
 
 CREATE TABLE role(
-   id_role INTEGER PRIMARY KEY,
+   id_role INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    nom_role VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE utilisateur(
    uuid_utilisateur UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-   pseudo_utilisateur VARCHAR(20) NOT NULL,
+   pseudo_utilisateur VARCHAR(20) NOT NULL UNIQUE,
    id_role INTEGER NOT NULL REFERENCES role(id_role),
    id_perso INTEGER UNIQUE REFERENCES personnage(id_perso)
 );
@@ -48,5 +48,5 @@ CREATE TABLE visiter(
    id_salle INTEGER REFERENCES salle(id_salle),
    heure_arrive TIME,
    heure_sortie TIME,
-   PRIMARY KEY(id_perso, id_salle)
+   PRIMARY KEY(id_perso, id_salle, heure_arrive)
 );
