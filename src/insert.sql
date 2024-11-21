@@ -1,4 +1,4 @@
-INSERT INTO personnage VALUES(
+INSERT INTO personnage(nom_perso) VALUES(
     ('Colonel MOUTARDE'),
     ('Docteur OLIVE'),
     ('Professeur VIOLET'),
