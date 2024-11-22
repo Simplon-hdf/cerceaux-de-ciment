@@ -12,9 +12,6 @@ CREATE DATABASE simpluedo;
 -- Se reconnecte à la nouvelle base de données
 \c simpluedo
 
--- Après s'être connecté à la base de données
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
-
 CREATE TABLE personnage(
    id_perso INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    nom_perso VARCHAR(20) NOT NULL UNIQUE
@@ -50,3 +47,6 @@ CREATE TABLE visiter(
    heure_sortie TIME,
    PRIMARY KEY(id_perso, id_salle, heure_arrive)
 );
+
+-- Après s'être connecté à la base de données
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
