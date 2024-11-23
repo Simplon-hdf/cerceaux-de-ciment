@@ -1,10 +1,12 @@
--- CREATE USER admin_simpluedo WITH CREATEDB;
+-- 1 : psql -U ayoublaroussi -f /Users/ayoublaroussi/Documents/Repo/Simplon/simpluedo-cerceaux-de-ciment/src/trigger.sql simpluedo
 
 -- Connexion à une autre base de données pour permettre la suppression
 \c postgres
 
 -- Supprime la base de données si elle existe
 DROP DATABASE IF EXISTS simpluedo;
+
+CREATE USER admin_simpluedo WITH CREATEDB;
 
 -- Crée une nouvelle base de données
 CREATE DATABASE simpluedo;
@@ -28,7 +30,7 @@ CREATE TABLE objet(
    id_salle INTEGER NOT NULL REFERENCES salle(id_salle)
 );
 
-CREATE TABLE role(
+CREATE TABLE roles(
    id_role INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    nom_role VARCHAR(20) NOT NULL UNIQUE
 );
@@ -36,16 +38,16 @@ CREATE TABLE role(
 CREATE TABLE utilisateur(
    uuid_utilisateur UUID PRIMARY KEY DEFAULT gen_random_uuid(),
    pseudo_utilisateur VARCHAR(20) NOT NULL UNIQUE,
-   id_role INTEGER NOT NULL REFERENCES role(id_role),
+   id_role INTEGER NOT NULL REFERENCES roles(id_role),
    id_perso INTEGER UNIQUE REFERENCES personnage(id_perso)
 );
 
 CREATE TABLE visiter(
    id_perso INTEGER REFERENCES personnage(id_perso),
    id_salle INTEGER REFERENCES salle(id_salle),
-   heure_arrive TIME,
+   heure_arrivee TIME,
    heure_sortie TIME,
-   PRIMARY KEY(id_perso, id_salle, heure_arrive)
+   PRIMARY KEY(id_perso, id_salle, heure_arrivee)
 );
 
 -- Après s'être connecté à la base de données
