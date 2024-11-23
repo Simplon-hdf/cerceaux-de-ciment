@@ -1,4 +1,5 @@
--- Procédure stockée
+
+-- Création de la procédure stockée "Lister tous les objets situés dans une pièce passée en paramètre" 
 
 CREATE OR REPLACE FUNCTION lister_objet(nom_salle VARCHAR)
  RETURNS TABLE(nom_objets VARCHAR)

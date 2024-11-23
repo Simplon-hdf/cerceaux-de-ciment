@@ -32,6 +32,5 @@ WHERE id_objet = 1 -- Le numéro de l'objet en question
 
 
 -- Supprimer une pièce
-
 DELETE FROM salle
 WHERE id_salle = '' -- L'id de la salle a supprimer
