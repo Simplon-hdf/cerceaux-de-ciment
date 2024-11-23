@@ -52,3 +52,5 @@ CREATE TABLE visiter(
 
 -- Après s'être connecté à la base de données
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
+
+ALTER SCHEMA public OWNER TO admin_simpluedo;
