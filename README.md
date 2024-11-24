@@ -3,10 +3,31 @@
 Ce projet contient toutes les requêtes SQL nécessaires pour créer et manipuler la base de données Simpluedo. Ce fichier est structuré en plusieurs sections pour faciliter la compréhension.
 
 ---
+### Sommaire
+
+1. [Structure de la Base de Données](#structure-de-la-base-de-données)
+    - [1. Création des Tables](#création-des-tables)
+    - [2. Insertion des Données](#insertion-des-données)
+2. [Triggers](#triggers)
+    - [Mise à jour de la position des personnages](#trigger--mise-à-jour-de-la-position-des-personnages)
+3. [Procédures Stockées](#procédures-stockées)
+4. [Requêtes Demandées](#requêtes-demandées)
+    - [1. Lister tous les personnages du jeu](#1-lister-tous-les-personnages-du-jeu)
+    - [2. Lister chaque joueur et son personnage associé](#2-lister-chaque-joueur-et-son-personnage-associé)
+    - [3. Afficher les personnages dans une salle à une heure donnée](#3-afficher-la-liste-des-personnages-présents-dans-la-cuisine-entre-0800-et-0900)
+    - [4. Afficher les pièces non visitées](#4-afficher-les-pièces-où-aucun-personnage-nest-allé)
+    - [5. Compter les objets par pièce](#5compter-le-nombre-dobjets-par-pièce)
+    - [6. Ajouter une pièce](#6-ajouter-une-pièce)
+    - [7. Modifier un objet](#7-modifier-un-objet)
+    - [8. Supprimer une pièce](#8-supprimer-une-pièce)
+5. [Sauvegarder la base de données](#sauvegarder-la-base-de-données)
+
+---
+
 
 ## Structure de la Base de Données
 
-### 1. Création des Tables
+### Création des Tables
 
 ```sql
 
@@ -71,7 +92,7 @@ ALTER SCHEMA public OWNER TO admin_simpluedo;
 
 ---
 
-### 2. Insertion des Données
+### Insertion des Données
 
 ```sql
 -- Insertion des personnages dans le jeu
@@ -126,7 +147,7 @@ INSERT INTO utilisateur(pseudo_utilisateur, id_role, id_perso) VALUES
 
 ---
 
-### 3. Triggers
+### Triggers
 
 #### Trigger : Mise à jour de la position des personnages
 
@@ -169,9 +190,7 @@ EXECUTE FUNCTION maj_position_trigger();
 
 ---
 
-### 4. Procédures Stockées
-
-#### Exemple : Lister les objets d'une salle
+### Procédures Stockées
 
 ```sql
 -- Création de la procédure stockée "Lister tous les objets situés dans une pièce passée en paramètre" 
@@ -222,7 +241,7 @@ call lister_objet('Cuisine');
 
 ---
 
-### 5. Requêtes Demandées
+### Requêtes Demandées
 
 #### 1. Lister tous les personnages du jeu
 
