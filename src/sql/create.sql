@@ -1,4 +1,3 @@
--- 1 : psql -U ayoublaroussi -f /Users/ayoublaroussi/Documents/Repo/Simplon/simpluedo-cerceaux-de-ciment/src/trigger.sql simpluedo
 
 -- Connexion à une autre base de données pour permettre la suppression
 \c postgres
@@ -52,5 +51,7 @@ CREATE TABLE visiter(
 
 -- Après s'être connecté à la base de données
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
+
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO admin_simpluedo;
 
 ALTER SCHEMA public OWNER TO admin_simpluedo;

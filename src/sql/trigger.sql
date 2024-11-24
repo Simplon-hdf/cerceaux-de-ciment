@@ -1,5 +1,5 @@
 \c simpluedo
-/* Création de la table position */
+-- Création de la table position
 CREATE TABLE position (
     id_perso INTEGER NOT NULL REFERENCES personnage(id_perso),
     id_salle INTEGER NOT NULL REFERENCES salle(id_salle),
@@ -7,9 +7,7 @@ CREATE TABLE position (
     PRIMARY KEY (id_perso) -- Un personnage peut être dans une seule salle à la fois
 );
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO admin_simpluedo;
-/* Création du Trigger */
-
+-- Création de la fonction
 CREATE OR REPLACE FUNCTION maj_position_trigger()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -29,6 +27,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Lancement du trigger
 CREATE TRIGGER trigger_maj_position
 AFTER INSERT OR UPDATE ON visiter
 FOR EACH ROW

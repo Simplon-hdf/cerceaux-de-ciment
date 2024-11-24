@@ -1,4 +1,3 @@
-
 -- Création de la procédure stockée "Lister tous les objets situés dans une pièce passée en paramètre" 
 
 CREATE OR REPLACE PROCEDURE lister_objet(n_salle VARCHAR)
