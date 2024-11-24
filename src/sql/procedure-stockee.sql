@@ -1,44 +1,45 @@
 
 -- Création de la procédure stockée "Lister tous les objets situés dans une pièce passée en paramètre" 
 
-CREATE OR REPLACE FUNCTION lister_objet(salle VARCHAR)
- RETURNS TABLE(nom_objet VARCHAR)
- LANGUAGE sql
- AS $$
-    SELECT nom_objet
-    FROM objet
-    INNER JOIN salle ON salle.id_salle = objet.id_salle
-    WHERE salle = nom_salle;
- $$;
+CREATE OR REPLACE PROCEDURE lister_objet(n_salle VARCHAR)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    obj_name VARCHAR; -- Variable pour stocker temporairement le nom des objets
+BEGIN
+    RAISE NOTICE 'Objets dans la salle % :', n_salle;
+    
+    FOR obj_name IN
+        SELECT objet.nom_objet
+        FROM objet
+        INNER JOIN salle ON salle.id_salle = objet.id_salle
+        WHERE salle.nom_salle = n_salle
+    LOOP
+        RAISE NOTICE 'Objet: %', obj_name; -- Afficher chaque objet trouvé
+    END LOOP;
+END;
+$$;
 
 -- Pour l'appeler
-CALL lister_objet();
+call lister_objet('Cuisine');
 
-
--- Création de la procédure stockée "Ajout d'un objet passé en paramètre et association avec la pièce concernée en ID"
-
-CREATE OR REPLACE PROCEDURE ajout_objet_id_salle(nom_objets VARCHAR, id_salles INTEGER)
- LANGUAGE plpgsql
- AS $$
- BEGIN
-     INSERT INTO objets (nom_objets, id_salles) VALUES 
-        (nom_objets, id_salles);
- END;
- $$;
 
 -- Création de la procédure stockée "Ajout d'un objet passé en paramètre et association avec la pièce concernée avec le nom"
 
- CREATE OR REPLACE PROCEDURE ajout_objet(var_nom_objets VARCHAR, var_nom_salles VARCHAR)
+ CREATE OR REPLACE PROCEDURE ajout_objet(var_nom_objet VARCHAR, var_nom_salle VARCHAR)
  LANGUAGE plpgsql
  AS $$
  BEGIN
-     INSERT INTO objets (nom_objets, id_salles)
-     SELECT var_nom_objets, salles.id_salles
-     FROM salles
-     WHERE salles.nom_salles = var_nom_salles;
+     INSERT INTO objet (nom_objet, id_salle)
+     SELECT var_nom_objet, salle.id_salle
+     FROM salle
+     WHERE salle.nom_salle = var_nom_salle;
  
      IF NOT FOUND THEN
-         RAISE EXCEPTION 'La salle "%" n''existe pas.', var_nom_salles;
+         RAISE EXCEPTION 'La salle "%" n''existe pas.', var_nom_salle;
      END IF;
  END;
  $$;
+
+ -- Pour l'appeler
+ call ajout_objet('Pam','Cuisine')
