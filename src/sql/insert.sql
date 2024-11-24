@@ -25,7 +25,7 @@ INSERT INTO objet(nom_objet, id_salle) VALUES
     ('Clé anglaise', 5),
     ('Barre de fer', 3);
 
-INSERT INTO role(nom_role) VALUES
+INSERT INTO roles(nom_role) VALUES
     ('Maitre du jeu'),
     ('Observateur'),
     ('Détective');
