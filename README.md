@@ -299,4 +299,20 @@ DELETE FROM salle
 WHERE id_salle = ''; -- Remplacez par l'identifiant de la salle à supprimer
 ```
 
- 
+---
+
+## Sauvegarder la base de données
+
+Pour sauvegarder la base de données **simpluedo**, exécutez la commande suivante :
+
+```bash
+pg_dump -h localhost -p 5432 -U "postgres" simpluedo > simpluedo_backup.sql
+```
+
+- **`-h localhost`** : Adresse de l’hôte (utilisez `localhost` si la base est locale).
+- **`-p 5432`** : Port par défaut de PostgreSQL.
+- **`-U postgres`** : Le supper User PostgreSQL.
+- **`simpluedo`** : Nom de la base de données à sauvegarder.
+- **`simpluedo_backup.sql`** : Fichier dans lequel la sauvegarde sera exportée.
+
+---
