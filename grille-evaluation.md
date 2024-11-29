@@ -7,77 +7,77 @@
 <tbody>
   <tr>
     <td>Script de création de tables</td>
-    <td></td>
-    <td></td>
+    <td align='center'>OK</td>
+    <td>Manque de la commande dans le readme pour effectuer la commande</td>
   </tr>
   <tr>
     <td>Règles de gestion</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>Dictionnaire de données</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>RBAC</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>MCD</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>MLD</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>MPD</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>Docker (facultatif)</td>
-    <td></td>
+    <td align='center'>KO</td>
     <td></td>
   </tr>
   <tr>
     <td>Requêtes</td>
-    <td></td>
+    <td align='center'>OK, OK, OK, OK, OK</td>
     <td></td>
   </tr>
   <tr>
     <td>Trigger</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>Procédures stockées</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>Script de puplement des données</td>
-    <td></td>
-    <td></td>
+    <td align='center'>KO</td>
+    <td>Il manque légèrement des données pour réellement vérifier certaines requêtes</td>
   </tr>
   <tr>
     <td>Exactitude des relations</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
   <tr>
     <td>README</td>
-    <td></td>
-    <td></td>
+    <td align='center'>OK</td>
+    <td>Il manque les commandes permettant d'installer l'environnement</td>
   </tr>
   <tr>
     <td>Execution sans erreurs</td>
-    <td></td>
+    <td align='center'>OK</td>
     <td></td>
   </tr>
 </tbody></table>
